@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
-import { Close, Add } from '@mui/icons-material';
-import {MenuItem, TextField, createTheme, ThemeProvider} from '@mui/material';
+import { Close, Add ,} from '@mui/icons-material';
+import PostAddIcon from '@mui/icons-material/PostAdd'
+import {MenuItem, TextField, Button} from '@mui/material';
 
 function Addmenu() {
+  const [foodName, setFoodName] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedVatvalue, setSelectedVatvalue] = useState('')
+  const [errorMessage, setErrorMessage] = useState(false);
   
   //This method is for selecting new food type.
   const handleOptionChange = (event) => {
@@ -16,6 +19,20 @@ function Addmenu() {
     setSelectedVatvalue(event.target.value);
   };
 
+  //This method is for 
+  const handleTextChange = (event) => {
+    errorMessage(event.target.value);
+    setErrorMessage(false);
+  };
+
+  const handleSubmit = () => {
+    if (foodName.trim() === '') {
+      setErrorMessage(true);
+    } else {
+      // Submit form or perform other actions
+    }
+  }
+
   return (
     <>
     <div style={{ position: 'relative' }}>
@@ -26,7 +43,8 @@ function Addmenu() {
     <div>
 
     <TextField className="custom-outline" required id="outlined-basic" label="FoodName" variant="outlined" 
-       style={{ marginBottom: '20px' }} />
+       value={foodName} style={{ marginBottom: '20px' }} onChange={handleTextChange} error={errorMessage}
+       helperText={errorMessage ? 'Please enter a food name' : ''} />
     <br />
     <TextField required className="custom-outline" id="outlined-basic" label="Food category" variant="outlined"
       select value={selectedOption} onChange={handleOptionChange} style={{ marginBottom: '20px', width: '220px' }} >
@@ -47,6 +65,15 @@ function Addmenu() {
     <br />
     <TextField required className="custom-outline" id="outlined-basic" label="Description" variant="outlined" 
     style={{ marginBottom: '20px' }}/>
+
+    <br />
+    <TextField required className="custom-outline" id="outlined-basic" label="Ingredients" variant="outlined" 
+    style={{ marginBottom: '20px' }}/>
+    <PostAddIcon style = {{fontSize: '2rem'}}/>
+
+    <Button variant="contained" onClick={handleSubmit}>
+        Add
+    </Button>
     
     </div>
         
