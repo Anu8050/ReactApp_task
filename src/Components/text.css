@@ -2,7 +2,6 @@
     padding: 20px;
   }
 
-
 .custom-outline .MuiOutlinedInput-notchedOutline {
     border-color: green;
   }
@@ -12,8 +11,12 @@
   }
 
 .itempage{
-  margin: 30px;
-  align-items: center;
+  /* margin: 30px; */
+  /* align-items: center;
   border-color: brown;
-  text-align: center;
+  text-align: center; */
+}
+
+.div{
+  height: 400px;
 }

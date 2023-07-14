@@ -1,10 +1,10 @@
 import React from 'react';
+import './footerpage.css';
 
 function Footer() {
   return (
-    <footer>
-      <p>&copy; {new Date().getFullYear()} Your Website Name. All rights reserved.</p>
-      {/* Add any other footer content */}
+    <footer className="footer">
+      <p>&copy; {new Date().getFullYear()} my react application.</p>
     </footer>
   );
 }

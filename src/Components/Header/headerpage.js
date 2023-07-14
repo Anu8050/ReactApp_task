@@ -1,9 +1,10 @@
 import React from 'react';
+import './headerpage.css'
 
 function Header() {
   return (
-    <header>
-      <h1>Your Header Title</h1>
+    <header className="header">
+      <h2>Your Header Title</h2>
     </header>
   );
 }
