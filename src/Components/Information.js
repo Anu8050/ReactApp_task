@@ -27,53 +27,22 @@ function Information() {
                             <>
                                 <Stack className="form-txtbx-container">
                                     <InputLabel className='Input-label'>Name:
-                                        <TextField
-                                            id="name"
-                                            value={data[0].name}
-                                            placeholder="Name"
-                                            className="input registration-screen-txtbx"
-                                            name="name"
-                                            disabled
-                                        />
+                                       <span>{data[0].name}</span>
                                     </InputLabel>
                                 </Stack>
                                 <Stack className="form-txtbx-container">
                                     <InputLabel className='Input-label'>Email:
-                                        <TextField
-                                            type="email"
-                                            id="email"
-                                            value={data[0].email}
-                                            placeholder="Email"
-                                            className="input registration-screen-txtbx"
-                                            name="email"
-                                            disabled
-                                        />
+                                      <span>{data[0].email}</span>
                                     </InputLabel>
                                 </Stack>
                                 <Stack className="form-txtbx-container">
                                     <InputLabel className='Input-label'>PhoneNo:
-                                        <TextField
-                                            id="phoneno"
-                                            type="tel"
-                                            value={data[0].phoneno}
-                                            placeholder="PhoneNo"
-                                            className="input registration-screen-txtbx"
-                                            name="phoneno"
-                                            disabled
-                                        />
+                                        <span>{data[0].phoneno}</span>
                                     </InputLabel>
                                 </Stack>
                                 <Stack className="form-txtbx-container">
                                     <InputLabel className='Input-label'>Age
-                                        <TextField
-                                            id="age"
-                                            type="age"
-                                            value={data[0].age}
-                                            placeholder="Age"
-                                            className="input registration-screen-txtbx"
-                                            name="age"
-                                            disabled
-                                        />
+                                       <span>{data[0].age}</span>
                                     </InputLabel>
                                 </Stack>
                                 <div className="button-container">
