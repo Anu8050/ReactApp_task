@@ -84,9 +84,8 @@ function Addmenu() {
     <DropzoneArea dropzoneText='Drag and drop food image here or'>
     <AddPhotoAlternateRoundedIcon />
     </DropzoneArea>
-    <>
-      
-    </>
+    <TextField required id="outlined-multiline-static" label="Description" multiline rows={4} 
+    style={{ marginBottom: '20px' }} />
     </div>
     
     <br />
