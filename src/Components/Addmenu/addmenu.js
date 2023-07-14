@@ -4,10 +4,16 @@ import {MenuItem, TextField, createTheme, ThemeProvider} from '@mui/material';
 
 function Addmenu() {
   const [selectedOption, setSelectedOption] = useState('');
+  const [selectedVatvalue, setSelectedVatvalue] = useState('')
   
   //This method is for selecting new food type.
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
+  };
+
+  //This method is for selecting new Vat value.
+  const handleOptionChangeVat = (event) => {
+    setSelectedVatvalue(event.target.value);
   };
 
   return (
@@ -30,9 +36,18 @@ function Addmenu() {
     </TextField>
     <Add style = {{fontSize: '2rem'}}/>
     <br />
-    
+    <TextField required className="custom-outline" id="outlined-basic" label="price" variant="outlined" 
+    style={{ marginBottom: '20px', width: '100px'}}/>
+
+    <TextField required className="custom-outline" id="outlined-basic" label="VAT" variant="outlined"
+      select value={selectedVatvalue} onChange={handleOptionChangeVat} style={{ marginBottom: '20px', width: '100px' }} >
+      <MenuItem value="option1">10%</MenuItem>
+      <MenuItem value="option2">20%</MenuItem>
+    </TextField>
+    <br />
     <TextField required className="custom-outline" id="outlined-basic" label="Description" variant="outlined" 
     style={{ marginBottom: '20px' }}/>
+    
     </div>
         
     </>
