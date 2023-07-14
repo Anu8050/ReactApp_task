@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Close } from '@mui/icons-material';
-import {Button, TextField, createTheme, ThemeProvider} from '@mui/material';
+import {MenuItem, TextField, createTheme, ThemeProvider} from '@mui/material';
 
 function Addmenu() {
+  const [selectedOption, setSelectedOption] = useState('');
+  
+  //This method is for selecting new food type.
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
   return (
     <>
     <div style={{ position: 'relative' }}>
@@ -12,14 +19,19 @@ function Addmenu() {
     <hr style={{color:'orange', width:'350px'}}></hr>
     <div>
 
-      <TextField className="custom-outline" id="outlined-basic" label="FoodName" variant="outlined" 
-      style={{ marginBottom: '20px' }}
-      InputProps={{style: { borderColor: 'green' },  }}
-      />
-      <br />
-      <TextField className="custom-outline" id="outlined-basic" label="Description" variant="outlined" 
-      style={{ marginBottom: '20px' }}
-      />
+    <TextField className="custom-outline" required id="outlined-basic" label="FoodName" variant="outlined" 
+       style={{ marginBottom: '20px' }} />
+    <br />
+    <TextField className="custom-outline" id="outlined-basic" label="Select an Option" variant="outlined"
+      select value={selectedOption} onChange={handleOptionChange} style={{ marginBottom: '20px' }} >
+      <MenuItem value="option1">food 1</MenuItem>
+      <MenuItem value="option2">food 2</MenuItem>
+      <MenuItem value="option3">food 3 Foods</MenuItem>
+    </TextField>
+    <br />
+    <TextField required className="custom-outline" id="outlined-basic" label="Description" variant="outlined" 
+    style={{ marginBottom: '20px' }}
+    />
 
     </div>
         
