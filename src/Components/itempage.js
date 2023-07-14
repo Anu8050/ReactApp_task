@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Tabs, Tab, Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
+import Header from './Header/headerpage';
 
 function Itempage() {
   const [value, setValue] = useState(0);
@@ -22,6 +23,7 @@ function Itempage() {
 
   return (
     <div className='itempage'>
+      <Header />
       <Tabs orientation="vertical" value={value} onChange={handleChange} aria-label="Item Tabs">
         <Tab label="Add" onClick={openDialog} />
         <Tab label="Item Two" />
