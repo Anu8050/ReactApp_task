@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Close } from '@mui/icons-material';
+import { Close, Add  } from '@mui/icons-material';
 import {MenuItem, TextField, createTheme, ThemeProvider} from '@mui/material';
 
 function Addmenu() {
@@ -22,8 +22,8 @@ function Addmenu() {
     <TextField className="custom-outline" required id="outlined-basic" label="FoodName" variant="outlined" 
        style={{ marginBottom: '20px' }} />
     <br />
-    <TextField className="custom-outline" id="outlined-basic" label="Select an Option" variant="outlined"
-      select value={selectedOption} onChange={handleOptionChange} style={{ marginBottom: '20px' }} >
+    <TextField required className="custom-outline" id="outlined-basic" label="Food category" variant="outlined"
+      select value={selectedOption} onChange={handleOptionChange} style={{ marginBottom: '20px', width: '220px' }} >
       <MenuItem value="option1">food 1</MenuItem>
       <MenuItem value="option2">food 2</MenuItem>
       <MenuItem value="option3">food 3 Foods</MenuItem>
