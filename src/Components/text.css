@@ -1,0 +1,19 @@
+.card {
+    padding: 20px;
+  }
+
+
+.custom-outline .MuiOutlinedInput-notchedOutline {
+    border-color: green;
+  }
+  
+  .custom-outline.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: green;
+  }
+
+.itempage{
+  margin: 30px;
+  align-items: center;
+  border-color: brown;
+  text-align: center;
+}
