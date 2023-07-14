@@ -38,7 +38,8 @@ function Itempage() {
             <Addmenu />
           </DialogContent>
           <DialogActions>
-            <Button onClick={closeDialog} color="primary">Close</Button>
+          <Button variant="contained">Add</Button>
+            <Button onClick={closeDialog} color="primary">Cancle</Button>
           </DialogActions>
         </Dialog>
       </div>
