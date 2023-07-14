@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Tabs, Tab, Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
 import Header from './Header/headerpage';
+import Footer from './Footer/footerpage'
 
 function Itempage() {
   const [value, setValue] = useState(0);
@@ -38,6 +39,7 @@ function Itempage() {
           <Button onClick={closeDialog} color="primary">Close</Button>
         </DialogActions>
       </Dialog>
+      <Footer />
     </div>
   );
 }
