@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Tabs, Tab, Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
 import Header from './Header/headerpage';
 import Footer from './Footer/footerpage';
+import Addmenu from './Addmenu/addmenu';
 
 function Itempage() {
   const [value, setValue] = useState(0);
@@ -33,9 +34,8 @@ function Itempage() {
           <Tab label="Item Three" />
         </Tabs>
         <Dialog open={dialogOpen} onClose={closeDialog}>
-          <DialogTitle>Add Menu</DialogTitle>
           <DialogContent>
-            <p>This is the content of Add menu</p>
+            <Addmenu />
           </DialogContent>
           <DialogActions>
             <Button onClick={closeDialog} color="primary">Close</Button>
