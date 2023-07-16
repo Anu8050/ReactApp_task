@@ -3,6 +3,7 @@ import { Box, Tabs, Tab, Dialog, DialogTitle, DialogContent, DialogActions, Butt
 import Header from './Header/headerpage';
 import Footer from './Footer/footerpage';
 import Addmenu from './Addmenu/addmenu';
+import './text.css'
 
 function Itempage() {
   const [value, setValue] = useState(0);
@@ -28,7 +29,8 @@ function Itempage() {
     <Header />
     <div className='itempage'>
       <div className='div'>
-        <Tabs orientation="vertical" value={value} onChange={handleChange} aria-label="Item Tabs">
+        <Tabs orientation="vertical" value={value} onChange={handleChange} aria-label="Item Tabs" 
+        className="tabs-container">
           <Tab label="Add" onClick={openDialog} />
           <Tab label="Item Two" />
           <Tab label="Item Three" />
@@ -38,7 +40,7 @@ function Itempage() {
             <Addmenu />
           </DialogContent>
           <DialogActions>
-          <Button variant="contained">Add</Button>
+            <Button variant="contained">Add</Button>
             <Button onClick={closeDialog} color="primary">Cancle</Button>
           </DialogActions>
         </Dialog>

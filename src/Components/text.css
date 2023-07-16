@@ -21,3 +21,23 @@
 .div{
   height: 400px;
 }
+
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  width: 200px; /* Adjust the width as needed */
+}
+
+.tabs-container .PrivateTabIndicator-vertical-7 {
+  left: 0 !important;
+  right: auto !important;
+}
+
+.itempage {
+  display: flex;
+  /* justify-content: center; */
+}
+
+.div {
+  display: flex;
+}

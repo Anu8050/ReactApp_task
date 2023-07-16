@@ -3,7 +3,8 @@ import { Close, Add ,} from '@mui/icons-material';
 import { DropzoneArea } from 'material-ui-dropzone';
 import AddPhotoAlternateRoundedIcon from '@mui/icons-material/AddPhotoAlternateRounded';
 import PostAddIcon from '@mui/icons-material/PostAdd'
-import {MenuItem, TextField, Button} from '@mui/material';
+import {MenuItem, TextField, createTheme, ThemeProvider} from '@mui/material';
+import './theme.css';
 
 function Addmenu() {
   const [selectedOption, setSelectedOption] = useState('');
@@ -11,6 +12,9 @@ function Addmenu() {
   const [foodName, setFoodName] = useState('');
   const [foodNameError, setFoodNameError] = useState(false);
   const [foodNameFocused, setFoodNameFocused] = useState(false);
+  const [description, setDescription] = useState('');
+  const [descriptionError, setDescriptionError] = useState(false);
+  const [descriptionFocused, setDescriptionFocused] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   
   //This method is for selecting new food type.
@@ -39,6 +43,30 @@ function Addmenu() {
     setFoodNameFocused(false);
   };
 
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
+    setDescriptionError(false);
+  };
+
+  const handleDescriptionFocus = () => {
+    if (!description) {
+      setDescriptionError(true);
+    }
+    setDescriptionFocused(true);
+  };
+
+  const handleDescriptionBlur = () => {
+    setDescriptionFocused(false);
+  };
+
+  const theme = createTheme({
+    palette: {
+        primary: {
+        main: '#008000'
+        },
+    },
+    });
+
 
   return (
     <>
@@ -47,12 +75,12 @@ function Addmenu() {
     <Close style={{position: 'absolute', top: '5px', right: '5px', cursor: 'pointer',}}/>
    </div>
     <hr style={{color:'orange', width:'350px'}}></hr>
+    <ThemeProvider theme={theme}>
     <div>
-
     <TextField className="custom-outline" required id="outlined-basic" label="FoodName" variant="outlined" 
        value={foodName} style={{ marginBottom: '20px' }} onChange={handleFoodNameChange} 
        onFocus={handleFoodNameFocus}  onBlur={handleFoodNameBlur}
-        error={foodNameError} helperText={foodNameError && !foodNameFocused ? 'Required' : ''}
+       error={foodNameError} helperText={foodNameError && !foodNameFocused ? 'Required' : ''}
        
        />
     <br />
@@ -73,9 +101,10 @@ function Addmenu() {
       <MenuItem value="option2">20%</MenuItem>
     </TextField>
     <br />
-    <TextField required multiline id="outlined-multiline-static" label="Description" variant="outlined" 
-    style={{ marginBottom: '20px' }}/>
-
+    <TextField className="custom-outline" required id="outlined-multiline-static" label="Description" multiline rows={4} variant="outlined" 
+      value={description} style={{ marginBottom: '20px' }} onChange={handleDescriptionChange} 
+      onFocus={handleDescriptionFocus}  onBlur={handleDescriptionBlur} error={descriptionError} 
+      helperText={descriptionError && !descriptionFocused ? 'Required' : ''}/>
     <br />
     <TextField required className="custom-outline" id="outlined-basic" label="Ingredients" variant="outlined" 
     style={{ marginBottom: '20px' }}/>
@@ -87,9 +116,10 @@ function Addmenu() {
     <TextField required id="outlined-multiline-static" label="Description" multiline rows={4} 
     style={{ marginBottom: '20px' }} />
     </div>
-    
+     
     <br />
       
+    </ThemeProvider>
     </>
   );
 }
