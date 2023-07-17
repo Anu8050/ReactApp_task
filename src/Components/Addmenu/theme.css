@@ -1,7 +1,7 @@
 .custom-outline .MuiOutlinedInput-notchedOutline {
-    border-color: rgb(254, 155, 26);
+    border-color: green;
   }
   
   .custom-outline.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: rgb(243, 155, 26);
+    border-color: green;
   }

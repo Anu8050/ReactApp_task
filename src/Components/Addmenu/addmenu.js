@@ -3,7 +3,12 @@ import { Close, Add ,} from '@mui/icons-material';
 import { DropzoneArea } from 'material-ui-dropzone';
 import AddPhotoAlternateRoundedIcon from '@mui/icons-material/AddPhotoAlternateRounded';
 import PostAddIcon from '@mui/icons-material/PostAdd'
-import {MenuItem, TextField, createTheme, ThemeProvider} from '@mui/material';
+import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
+import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import {MenuItem, TextField, createTheme, ThemeProvider, Stack, InputAdornment  } from '@mui/material';
+import dayjs from 'dayjs';
 import './theme.css';
 
 function Addmenu() {
@@ -77,8 +82,9 @@ function Addmenu() {
     <hr style={{color:'orange', width:'350px'}}></hr>
     <ThemeProvider theme={theme}>
     <div>
-    <TextField className="custom-outline" required id="outlined-basic" label="FoodName" variant="outlined" 
-       value={foodName} style={{ marginBottom: '20px' }} onChange={handleFoodNameChange} 
+    <TextField className="custom-outline" required id="outlined-basic" label="FoodName" 
+        variant="outlined" InputProps={{style: { borderColor: 'orange' }}}
+        value={foodName} style={{ marginBottom: '20px' }} onChange={handleFoodNameChange} 
        onFocus={handleFoodNameFocus}  onBlur={handleFoodNameBlur}
        error={foodNameError} helperText={foodNameError && !foodNameFocused ? 'Required' : ''}
        
@@ -109,12 +115,84 @@ function Addmenu() {
     <TextField required className="custom-outline" id="outlined-basic" label="Ingredients" variant="outlined" 
     style={{ marginBottom: '20px' }}/>
     <PostAddIcon style = {{fontSize: '2rem'}}/>
-    <br />
+    <br/>
+
+    <Stack spacing={2}>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <TextField
+          className="custom-outline"
+          id="outlined-basic"
+          label="Choose Available Time"
+          variant="outlined"
+          focused
+          style={{ marginBottom: '20px', width:'350px'}}
+          InputProps={{
+            endAdornment: (
+              <>
+                <TextField
+                  className="custom-outline"
+                  id="outlined-basic"
+                  label="From"
+                  variant="outlined"
+                  focused
+                  style={{ width: '700px', marginBottom: '15px',marginTop: '10px', paddingRight: '60px' }}
+                  
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                          <MobileTimePicker
+                            sx={{ border: 'none', width: '400px', "& fieldset": { border: 'none' } }}
+                            value={dayjs('2022-04-17T15:30')}
+                            onChange={() => {}}
+                            renderInput={(params) => (
+                              <TextField {...params} className="custom-outline" variant="outlined" label='From' />
+                            )}
+                          />
+                        </LocalizationProvider>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <TextField
+                  className="custom-outline"
+                  id="outlined-basic"
+                  label="To"
+                  variant="outlined"
+                  focused
+                  style={{ width: '700px', marginBottom: '15px',marginTop: '10px', paddingRight: '5px'  }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                          <MobileTimePicker
+                            sx={{ border: 'none', width: '400px', "& fieldset": { border: 'none' } }}
+                            value={dayjs('2022-04-17T15:30')}
+                            onChange={() => {}}
+                            renderInput={(params) => (
+                              <TextField {...params} className="custom-outline" variant="outlined" label='From' />
+                            )}
+                          />
+                        </LocalizationProvider>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </>
+            ),
+          }}
+        />
+      </LocalizationProvider>
+    </Stack>
+
+
+    <br/>
+
+    <br/>
     <DropzoneArea dropzoneText='Drag and drop food image here or'>
     <AddPhotoAlternateRoundedIcon />
     </DropzoneArea>
-    <TextField required id="outlined-multiline-static" label="Description" multiline rows={4} 
-    style={{ marginBottom: '20px' }} />
+
     </div>
      
     <br />
