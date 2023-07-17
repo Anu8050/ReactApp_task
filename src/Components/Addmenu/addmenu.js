@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { styled } from '@mui/material/styles';
 import { Close, Add ,} from '@mui/icons-material';
 import { DropzoneArea } from 'material-ui-dropzone';
 import AddPhotoAlternateRoundedIcon from '@mui/icons-material/AddPhotoAlternateRounded';
@@ -7,7 +8,9 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import {MenuItem, TextField, createTheme, ThemeProvider, Stack, InputAdornment  } from '@mui/material';
+import { MultiInputTimeRangeField } from '@mui/x-date-pickers-pro/MultiInputTimeRangeField';
+import { SingleInputTimeRangeField } from '@mui/x-date-pickers-pro/SingleInputTimeRangeField';
+import {MenuItem, TextField, createTheme, ThemeProvider, Stack, InputAdornment, FormHelperText  } from '@mui/material';
 import dayjs from 'dayjs';
 import './theme.css';
 
@@ -67,11 +70,10 @@ function Addmenu() {
   const theme = createTheme({
     palette: {
         primary: {
-        main: '#008000'
+        main: '#FFA500'
         },
     },
     });
-
 
   return (
     <>
@@ -82,16 +84,15 @@ function Addmenu() {
     <hr style={{color:'orange', width:'350px'}}></hr>
     <ThemeProvider theme={theme}>
     <div>
-    <TextField className="custom-outline" required id="outlined-basic" label="FoodName" 
-        variant="outlined" InputProps={{style: { borderColor: 'orange' }}}
-        value={foodName} style={{ marginBottom: '20px' }} onChange={handleFoodNameChange} 
-       onFocus={handleFoodNameFocus}  onBlur={handleFoodNameBlur}
-       error={foodNameError} helperText={foodNameError && !foodNameFocused ? 'Required' : ''}
-       
+    <TextField fullWidth className="custom-outline" required id="outlined-basic" label="FoodName" 
+        variant="outlined" InputProps={{style: { borderColor: 'orange' }}} 
+        value={foodName} style={{ marginBottom: '20px' , color:'orange'}} 
+        onChange={handleFoodNameChange}  onBlur={handleFoodNameBlur} onFocus={handleFoodNameFocus}
+       error={foodNameError && foodName.trim() === ''} helperText={foodNameError && !foodNameFocused ? 'Required' : ''}
        />
     <br />
-    <TextField required className="custom-outline" id="outlined-basic" label="Food category" variant="outlined"
-      select value={selectedOption} onChange={handleOptionChange} style={{ marginBottom: '20px', width: '220px' }} >
+    <TextField fullWidth required className="custom-outline" id="outlined-basic" label="Food category" variant="outlined"
+      select value={selectedOption} onChange={handleOptionChange} style={{ marginBottom: '20px', width:'315px' }} >
       <MenuItem value="option1">food 1</MenuItem>
       <MenuItem value="option2">food 2</MenuItem>
       <MenuItem value="option3">food 3 Foods</MenuItem>
@@ -99,7 +100,7 @@ function Addmenu() {
     <Add style = {{fontSize: '2rem'}}/>
     <br />
     <TextField required className="custom-outline" id="outlined-basic" label="price" variant="outlined" 
-    style={{ marginBottom: '20px', width: '100px'}}/>
+    style={{ marginBottom: '20px', width:'100px',spacing:'5px'}}/>
 
     <TextField required className="custom-outline" id="outlined-basic" label="VAT" variant="outlined"
       select value={selectedVatvalue} onChange={handleOptionChangeVat} style={{ marginBottom: '20px', width: '100px' }} >
@@ -108,16 +109,15 @@ function Addmenu() {
     </TextField>
     <br />
     <TextField className="custom-outline" required id="outlined-multiline-static" label="Description" multiline rows={4} variant="outlined" 
-      value={description} style={{ marginBottom: '20px' }} onChange={handleDescriptionChange} 
+      value={description} style={{ marginBottom: '20px', width:'350px', color:'orange' }} onChange={handleDescriptionChange} 
       onFocus={handleDescriptionFocus}  onBlur={handleDescriptionBlur} error={descriptionError} 
       helperText={descriptionError && !descriptionFocused ? 'Required' : ''}/>
     <br />
     <TextField required className="custom-outline" id="outlined-basic" label="Ingredients" variant="outlined" 
-    style={{ marginBottom: '20px' }}/>
+    style={{ marginBottom: '20px', width:'315px' }}/>
     <PostAddIcon style = {{fontSize: '2rem'}}/>
     <br/>
-
-    <Stack spacing={2}>
+    <Stack spacing={2} style ={{paddingRight:'5px',paddingLeft:'5px', paddingTop:'5px', paddingBottom:'5px',width:'100px'}}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <TextField
           className="custom-outline"
@@ -125,7 +125,7 @@ function Addmenu() {
           label="Choose Available Time"
           variant="outlined"
           focused
-          style={{ marginBottom: '20px', width:'350px'}}
+          style={{ marginBottom: '20px', width:'350px', paddingRight:'5px',paddingLeft:'5px', paddingTop:'5px', paddingBottom:'5px'}}
           InputProps={{
             endAdornment: (
               <>
@@ -184,10 +184,10 @@ function Addmenu() {
         />
       </LocalizationProvider>
     </Stack>
-
-
     <br/>
 
+    <br/>
+    
     <br/>
     <DropzoneArea dropzoneText='Drag and drop food image here or'>
     <AddPhotoAlternateRoundedIcon />

@@ -40,7 +40,7 @@ function Itempage() {
             <Addmenu />
           </DialogContent>
           <DialogActions>
-            <Button variant="contained">Add</Button>
+            <Button variant="contained" disabled={true}>Add</Button>
             <Button onClick={closeDialog} color="primary">Cancle</Button>
           </DialogActions>
         </Dialog>
