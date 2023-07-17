@@ -32,10 +32,10 @@
 }
 
 .Input-label {
-    color: Blue;
     font-Size: 16px;
     font-Weight: bold;
-    margin-Bottom: '8px'
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 .form-txtbx-container {

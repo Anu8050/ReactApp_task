@@ -23,6 +23,7 @@ function Information() {
                 <div className="box">
                     <form action="">
                         <h1> Your Information </h1>
+                        <hr/>
                         {data.length > 0 ? (
                             <>
                                 <Stack className="form-txtbx-container">
@@ -41,7 +42,7 @@ function Information() {
                                     </InputLabel>
                                 </Stack>
                                 <Stack className="form-txtbx-container">
-                                    <InputLabel className='Input-label'>Age
+                                    <InputLabel className='Input-label'>Age:
                                        <span>{data[0].age}</span>
                                     </InputLabel>
                                 </Stack>
